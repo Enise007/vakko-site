@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vakko</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar stil ayarları */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+            background-color: white;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        /* Hamburger icon */
+        .navbar .menu-icon {
+            font-size: 30px;
+            cursor: pointer; 
+            margin-right: 10px;
+    
+        }
+
+        /* Vakko logosu */
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 1000px;
+    
+        }
+
+        /* Sağdaki iconlar */
+        .icon-menu {
+            display: flex;
+            gap: 25px;
+            margin-right: 2%;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            fill: black;
+            transition: fill 0.3s;
+            
+    
+        }
+
+        .icon:hover {
+            fill: gray;
+        }
+
+
+        /* Sidebar stilini ayarlıyoruz */
+        .sidenav {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 60px;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 999;
+        }
+
+        .sidenav a {
+            display: block;
+            text-decoration: none;
+            font-size: 20px;
+            color: #aaa;
+            padding: 8px 8px 8px 35px;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #aaaaaaea;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+        }
+
+        .language-switch {
+            padding-left: 35px;
+            margin-top: 20px;
+        }
+
+        .language-switch a {
+            font-size: 18px;
+            color: #aaaaaaea;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .language-switch a:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- Hamburger Icon -->
+        <span class="menu-icon" onclick="openNav()">&#9776;</span>
+
+        <!-- Vakko Logo -->
+        <div class="logo">
+            <img src="images.png" alt="">
+        </div>
+
+        <!-- Sağdaki Iconlar -->
+        <div class="icon-menu">
+            <!-- Arama İkonu -->
+            <a href="#" title="Search">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" stroke="black" stroke-width="1" fill="none"/>
+                    <line x1="17" y1="17" x2="21" y2="21" stroke="black" stroke-width="1"/>
+                </svg>
+            </a>
+            <!-- Kullanıcı İkonu -->
+            <a href="#" title="User">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" stroke="black" stroke-width="1" fill="none"/>
+                    <path d="M4,20c0-4,4-7,8-7s8,3,8,7" stroke="black" stroke-width="1" fill="none"/>
+                </svg>
+            </a>
+            <!-- Sepet İkonu -->
+            <a href="#" title="Cart">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="9" cy="20" r="2" stroke="black" stroke-width="1" fill="none"/>
+                    <circle cx="17" cy="20" r="2" stroke="black" stroke-width="1" fill="none"/>
+                    <path d="M5 5h2l1 12h10l1-12h2" stroke="black" stroke-width="1" fill="none"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+          
+    <!-- Sidebar -->
+    <div class="sidenav" id="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <a href="#">Kadın</a>
+            <a href="#">Erkek</a> 
+            <a href="#">Shoes & Bags</a> 
+            <a href="#">V2K Designers</a> 
+            <a href="#">Mare</a>
+            <a href="#">Couture</a> 
+            <a href="#">Wedding</a> 
+            <a href="#">Home</a> 
+            <a href="#">Kozmetik</a>
+            <a href="#">Vakkorama</a> 
+            <a href="#">Vakko Hotel & Residence</a> 
+            <a href="#">L'Atelier</a> 
+            <a href="#">Outlet</a> 
+            <a href="#">Vakko Hakkında</a> 
+        </ul>
+    </div>
+
+    <!-- JavaScript ile Sidebar açıp kapatma -->
+    <script>
+        function openNav() {
+            document.getElementById("sidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
+
+    <title>Vakko Dikey Slider</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            overflow-x: hidden; /* Sayfa kaydırmasını engeller */
+        }
+         /* Bilgilendirme Kapsayıcı */
+         .info-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .info-item img {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .info-item span {
+            display: block;
+        }
+
+        .info-item small {
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+
+        /* Slider kapsayıcı */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Slider içeriği */
+        .slider-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300vh;;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Slider item */
+        .slider-item {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Slider üzerindeki resimler */
+        .slider-item img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* Slider üzerindeki yazı */
+        .slider-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Yukarı çıkış düğmesi */
+        .scroll-up {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .scroll-up:hover {
+            background-color: #555;
+        }
+
+        /* Dikey navigasyon düğmeleri */
+        .nav-dots {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .nav-dots button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-dots button.active {
+            background-color: #000; /* Aktif durumdaki düğme rengi */
+        }
+    </style>
+
+
+        <title>Vakko Dikey Slider</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: "Roboto", sans-serif;
+                overflow-x: hidden; /* Yatay kaydırmayı engelle */
+            }
+    
+            /* Slider kapsayıcı */
+            .slider-container {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+    
+            /* Slider içeriği */
+            .slider-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh; /* Toplam slider yüksekliği (her bir slide yüksekliği toplamı) */
+                transition: transform 0.5s ease-in-out;
+            }
+    
+            /* Slider item */
+            .slider-item {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+            }
+    
+            /* Slider üzerindeki resimler */
+            .slider-item img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+            }
+    
+            /* Slider üzerindeki yazı */
+            .slider-text {
+                position: absolute;
+                padding-bottom: 10%; /* Görselin alt kısmına hizalanır */
+                left: 50%; /* Yatay olarak ortalar */
+                transform: translateX(-50%); /* Ortalamayı tamamlama */
+                color: #fff; /* Yazı rengi beyaz */
+                font-size: 24px; /* Yazı boyutu */
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Gölgeli yazı stili */
+            }
+    
+            /* Dikey navigasyon düğmeleri */
+            .nav-dots {
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                z-index: 2;
+            }
+    
+            .nav-dots button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                border: none;
+                background-color: #ddd;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            .nav-dots button.active {
+                background-color: #000; /* Aktif durumdaki düğme rengi */
+            }
+    
+            /* Yukarı çıkma düğmesi */
+            .back-to-top {
+                position: fixed;
+                bottom: 90px;
+                right: 50px;
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                color: white;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 3;
+            }
+    
+            .back-to-top:hover {
+                background-color: #333; /* Hover rengi */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Slider Kapsayıcı -->
+        <div class="slider-container">
+            <!-- Slider İçeriği -->
+            <div class="slider-content" id="slider">
+                <!-- Slider Öğeleri -->
+                <div class="slider-item">
+                    <img src="anasayfa1.png" alt="Slider Görseli 1">
+                    <div class="slider-text">VAKKO SONBAHAR/KIŞ</div>
+                </div>
+                <div class="slider-item">
+                    <img src="1aef8877-f348-4a3a-9208-c1dc33069bab.png" alt="Slider Görseli 2">
+                    <div class="slider-text">VAKKO KADIN</div>
+                </div>
+                <div class="slider-item">
+                    <img src="4615a07c-fad1-4068-8e5e-3a9e9863fd6f.png" alt="Slider Görseli 3">
+                    <div class="slider-text">VAKKO ERKEK</div>
+                </div>
+            </div>
+    
+            <!-- Dikey Navigasyon Düğmeleri -->
+            <div class="nav-dots" id="navDots">
+                <button onclick="moveSlide(0)" class="active"></button>
+                <button onclick="moveSlide(1)"></button>
+                <button onclick="moveSlide(2)"></button>
+            </div>
+        </div>
+    
+        <!-- Yukarı çıkma düğmesi -->
+        <button class="back-to-top" onclick="scrollToTop()">▲</button>
+    
+        <script>
+            let currentIndex = 0;
+            const slider = document.getElementById('slider');
+            const dots = document.querySelectorAll('.nav-dots button');
+    
+            function moveSlide(index) {
+                currentIndex = index;
+                slider.style.transform = `translateY(-${index * 100}vh)`;
+                updateDots();
+            }
+    
+            function updateDots() {
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentIndex);
+                });
+            }
+    
+            // Otomatik kaydırma fonksiyonu
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % dots.length;
+                moveSlide(currentIndex);
+            }, 3000); // 3 saniyede bir otomatik olarak kaydırılır
+    
+            // Sayfayı yukarı kaydırma fonksiyonu
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
+
+    
+    <!-- Footer -->
+        <title>Vakko Footer</title>
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            /* Footer Stil Ayarları */
+            .footer {
+                background-color: white;
+                padding: 40px 20px;
+                border-top: 1px solid #e6e6e6;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+    
+            .footer-column {
+                flex: 1;
+                min-width: 200px;
+                margin-bottom: 20px;
+            }
+    
+            .footer-column h4 {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: black;
+                padding-left: 30%;
+            }
+    
+            .footer-column a {
+                display: block;
+                font-size: 18px;
+                color: #777;
+                text-decoration: none;
+                margin-bottom: 8px;
+                transition: color 0.3s;
+                padding-left: 30%;
+            }
+    
+            .footer-column a:hover {
+                color: black;
+            }
+    
+            .footer-social {
+                display: flex;
+                gap: 80px;
+                margin-top: 20px;
+                justify-content: center;
+            }
+    
+            .footer-social a {
+                font-size: 25px;
+                color: black;
+                text-decoration: none;
+                transition: color 0.3s;
+                
+            }
+    
+            .footer-social a:hover {
+                color: #777;
+            }
+    
+            .footer-apps {
+                display: flex;
+                gap: 30px;
+                margin-top: 20px;
+                justify-content: center;
+            }
+    
+            .footer-apps img {
+                width: 130px;
+                cursor: pointer;
+            }
+    
+            .footer-note {
+                font-size: 15px;
+                color: #777;
+                text-align: center;
+                margin-top: 20px;
+            }
+    
+            .footer-note span {
+                color: black;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="info-container">
+            <div class="info-item">
+                <img src="https://img.icons8.com/ios/50/000000/shield.png" alt="Güvenli Alışveriş">
+                <div>
+                    <span>GÜVENLİ ALIŞVERİŞ</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="https://img.icons8.com/ios/50/000000/delivery.png" alt="Ücretsiz Kargo">
+                <div>
+                    <span>ÜCRETSİZ KARGO</span>
+                    <small>1000 TL ve üzeri siparişlerde ücretsiz kargo</small>
+                </div>
+            </div>
+            <div class="info-item">
+                <img src="https://img.icons8.com/ios/50/000000/synchronize.png" alt="Kolay Değişim ve İade">
+                <div>
+                    <span>KOLAY DEĞİŞİM VE İADE</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-column">
+                <h4>KEŞFET</h4>
+                <a href="#">Vakko Hakkında</a>
+                <a href="#">Mağazalar</a>
+                <a href="#">Vakko Card</a>
+            </div>
+            <div class="footer-column">
+                <h4>VAKKO GROUP</h4>
+                <a href="#">V2K Designers</a>
+                <a href="#">Vakkorama</a>
+                <a href="#">Vakko L'Atelier</a>
+                <a href="#">Vakko Hotel & Residence</a>
+                <a href="#">Vakko Esmod</a>
+                <a href="#">Vakko School of Hospitality and Service</a>
+                <a href="#">Power Group</a>
+                <a href="#">Vitali Hakko Kreatif Endüstriler Kütüphanesi</a>
+            </div>
+            <div class="footer-column">
+                <h4>BİLGİ</h4>
+                <a href="#">Sıkça Sorulan Sorular</a>
+                <a href="#">İletişim</a>
+                <a href="#">Kurumsal İletişim</a>
+                <a href="#">Teslimat</a>
+                <a href="#">İade ve Değişim</a>
+                <a href="#">Kurumsal Satış</a>
+            </div>
+            <div class="footer-column">
+                <h4>MÜŞTERİ İLİŞKİLERİ</h4>
+                <a href="#">Çerez Politikası</a>
+                <a href="#">Müşteri Aydınlatma Metni</a>
+                <a href="#">Sınırlı Sorumluluk</a>
+                <a href="#">Fikri Sınai Mülkiyet</a>
+                <a href="#">Bilgi Güvenliği</a>
+                <a href="#">Bilgi Toplumu Hizmetleri</a>
+                <a href="#">Kalite Politikası</a>
+                <a href="#">Yatırımcı İlişkileri</a>
+                <a href="#">Sürdürülebilirlik</a>
+            </div>
+            
+        </div>
+
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <div class="footer-note">
+            Vakko shop her platformda yanınızda
+        </div>
+        
+            <div class="footer-apps">
+                <img src="png-transparent-itunes-app-store-apple-logo-apple-text-rectangle-logo.png" alt="App Store">
+                <img src="png-clipart-google-play-logo-google-play-computer-icons-app-store-google-text-logo.png" alt="Google Play">
+            </div>
+        
+    </body>
+    </html>
+    

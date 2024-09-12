@@ -1,0 +1,38 @@
+
+
+/* Responsive Design */
+@media screen and (max-height: 450px) {
+    .overlay-content a {
+        font-size: 20px;
+    }
+    
+    .closebtn {
+        font-size: 30px;
+        top: 15px;
+        right: 35px;
+    }
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slider-text h2 {
+        font-size: 36px;
+    }
+
+    .slider-text p {
+        font-size: 18px;
+    }
+}
